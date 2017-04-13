@@ -20,7 +20,6 @@ import java.io.IOException;
 
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.HttpRequest;
-import org.springframework.http.client.reactive.*;
 import org.springframework.util.concurrent.ListenableFuture;
 
 /**
@@ -33,7 +32,6 @@ import org.springframework.util.concurrent.ListenableFuture;
  * @author Arjen Poutsma
  * @since 4.0
  * @see AsyncClientHttpRequestFactory#createAsyncRequest
- * @deprecated as of Spring 5.0, in favor of {@link org.springframework.http.client.reactive.ClientHttpRequest}
  */
 @Deprecated
 public interface AsyncClientHttpRequest extends HttpRequest, HttpOutputMessage {

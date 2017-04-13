@@ -120,7 +120,7 @@ public class ResourceRegionHttpMessageConverter extends AbstractGenericHttpMessa
 
 	@Override
 	@SuppressWarnings("unchecked")
-	protected void writeInternal(Object object, Type type, HttpOutputMessage outputMessage)
+	protected void  writeInternal(Object object, Type type, HttpOutputMessage outputMessage)
 			throws IOException, HttpMessageNotWritableException {
 
 		if (object instanceof ResourceRegion) {
