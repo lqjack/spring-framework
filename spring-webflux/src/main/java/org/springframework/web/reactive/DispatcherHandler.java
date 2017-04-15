@@ -141,7 +141,7 @@ public class DispatcherHandler implements WebHandler, ApplicationContextAware {
 
 	private Mono<Void> handleResult(ServerWebExchange exchange, HandlerResult result) {
 		return getResultHandler(result).handleResult(exchange, result)
-				.switchOnError(ex -> result.applyExceptionHandler(ex).flatMap(exceptionResult ->
+				.onErrorResume(ex -> result.applyExceptionHandler(ex).flatMap(exceptionResult ->
 						getResultHandler(exceptionResult).handleResult(exchange, exceptionResult)));
 	}
 
@@ -183,7 +183,6 @@ public class DispatcherHandler implements WebHandler, ApplicationContextAware {
 	 * @see HttpWebHandlerAdapter
 	 * @see org.springframework.http.server.reactive.ServletHttpHandlerAdapter
 	 * @see org.springframework.http.server.reactive.ReactorHttpHandlerAdapter
-	 * @see org.springframework.http.server.reactive.RxNettyHttpHandlerAdapter
 	 * @see org.springframework.http.server.reactive.UndertowHttpHandlerAdapter
 	 */
 	public static HttpHandler toHttpHandler(ApplicationContext context) {
